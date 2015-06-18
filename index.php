@@ -1,7 +1,9 @@
 <?php
 require 'vendor/autoload.php';
 $app = new Slim\Slim(array(
-    'templates.path' => 'App/Views'
+    'templates.path' => 'App/Views',
+    'view' => new Core\ChuchuView(),
+    'layout' => 'default.php'
 ));
 
 //Router
