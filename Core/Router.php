@@ -1,37 +1,37 @@
 <?php
+
 namespace Core;
 
 /**
- * Description of Router
+ * Router du l'App
  *
- * @author Amar OUALI <amar@webcd.fr>
+ * @author Amar OUALI <contact@amarouali.fr>
  */
-class Router
-{
+class Router {
+
     private $app;
-    
-    public function __construct($app){
+    public function __construct($app) {
         $this->app = $app;
     }
-    
-    private function call($request,$url,$action){
-        return $this->app->$request($url,function() use ($action){
-           $action = explode('@',$action) ;
-           $controller_name = '\App\Controllers\\'.$action[0] . 'Controller';
-           $method = $action[1];
-           $controller = new $controller_name($this->app);
-           call_user_func_array([$controller, $method], []);
-        });
+    /**
+     * @author Amar OUALI <contact@amarouali.fr>
+     * Permet de faire le router  
+     * @param type $name nom de la méthode request 
+     * @param type $arguments Controller@methode
+     * @return void
+     */
+    public function __call($name, $arguments) {
+        
+        $url = $arguments[0];
+        $action = $arguments[1];
+        
+        return $this->app->$name($url, function() use ($action) {
+                    $action = explode('@', $action);
+                    $controller_name = '\App\Controllers\\' . $action[0] . 'Controller';
+                    $method = $action[1];
+                    $controller = new $controller_name($this->app);
+                    call_user_func_array([$controller, $method], func_get_args());
+                });
     }
-    
-    public function get($url,$action){
-        $this->call('get',$url,$action);    
-    }
-    
-    
-    public function post($url,$action){
-        $this->call('post',$url,$action);    
-    }
-    
-    
+
 }
