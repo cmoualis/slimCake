@@ -1,0 +1,26 @@
+{
+    "name": "root/slim",
+    "authors": [
+        {
+            "name": "cmoualis",
+            "email": "contac@amarouali.fr"
+        }
+    ],
+    
+    "require": {
+        "php": ">=5.3.0"
+    },
+    
+    "suggest": {
+        "ext-mcrypt": "Required for HTTP cookie encryption"
+    },
+    
+    "autoload": {
+        "psr-4": {
+            "Slim\\": "Slim",
+            "App\\" : "App",
+            "Core\\": "Core"
+        },
+        "files": ["Core/NotORM/NotORM.php"]
+    }
+}
