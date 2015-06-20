@@ -48,9 +48,9 @@ class ChuchuView extends \Slim\View {
      */
     public function fetch($template, $data = null) {
         $layout = $this->getLayout($data);
-        $result = $this->render($template, $data = null);
-        if (is_string($layout)) {
-            $app = \Slim\Slim::getInstance();
+        $app = \Slim\Slim::getInstance();
+        $result = $this->render($template, compact('app'));
+        if (is_string($layout)) {            
             $result = $this->renderLayout($layout, $result, compact('app'));
         }
 
