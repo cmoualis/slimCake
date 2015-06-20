@@ -15,15 +15,17 @@
             <section class="top-bar-section">
                 <!-- Right Nav Section -->
                 <ul class="left">
-                               
+
                 </ul>      
             </section>
         </nav>
 
         <div class="row">
+            <?php require 'Elements/notif.php'; ?>    
             <?php echo $yield; ?>
 
         </div>
+
         <script src="<?php echo $app->request->getPath() . '/public/js/libs/libs.min.js' ?>"></script>
         <script src="<?php echo $app->request->getPath() . '/public/js/libs/foundation.min.js' ?>"></script>
         <script src="<?php echo $app->request->getPath() . '/public/js/app.min.js' ?>"></script>
