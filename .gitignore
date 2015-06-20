@@ -1,1 +1,4 @@
-vendor/
+*.DS_Store
+vendor/*
+Assets/bower_components/*
+Assets//node_modules/*
