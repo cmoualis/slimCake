@@ -1,1 +1,1 @@
-alert('sdsd');
+$(document).foundation();

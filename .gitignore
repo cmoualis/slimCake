@@ -1,4 +1,7 @@
 *.DS_Store
-vendor/*
+vendor/
 Assets/bower_components/*
 Assets//node_modules/*
+public/css/*
+public/js/*
+Assets/
